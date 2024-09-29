@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 const FacultyPage = ({ data }) => {
     const { faculty_id } = useParams();
     const [fData, setFData] = useState({});
+    const [email, setEmail] = useState(localStorage.getItem("email"))
     useEffect(() => {
         const res = data.filter(f => f.faculty_id == faculty_id);
         setFData(res[0]);
@@ -97,7 +98,9 @@ const FacultyPage = ({ data }) => {
                 <div className='my-4 flex flex-col gap-4'>
                     <p className='text-2xl font-bold'>Leaves</p>
                     <p> {fData?.leaves === "0" ? "No leave" : fData?.leaves + " leaves"} in this semester </p>
-                    <button onClick={handleLeave} className='bg-sky-500 px-8 py-2 rounded-md w-fit text-white'>Add Leave</button>
+                    {
+                        email && email === "vandantiwari@gmail.com" && <button onClick={handleLeave} className='bg-sky-500 px-8 py-2 rounded-md w-fit text-white'>Add Leave</button>
+                    }
                 </div>
             </div>
         </div>
