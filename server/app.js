@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 
 // Faculty routes
 app.get('/faculty', async (req, res) => {
-    const users = await Faculty.find({});
+    const users = await User.find({});
     if (JSON.stringify(users) === "[]") return res.status(203).json({ message: "No user found" });
     res.json(Array.isArray(users) ? users : [users]);
 });
@@ -37,22 +37,32 @@ app.patch('/faculty/:faculty_id', async (req, res) => {
 
 // Register route
 app.post('/register', async (req, res) => {
-    const { name, email, password } = req.body;
-
+    const { name, profilePic, faculty_id, contact_info, department, designation, email, qualification, salary,leaves, password } = req.body;
+    //
+    // if(!name || !profilePic || !faculty_id || !contact_info || !department || !designation || !email || !qualification || !salary || !leaves || !password){
+    //     return res.status(400).json({ message: 'All fields are required' });
+    // }
     // Check if user already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
         return res.status(400).json({ message: 'User already exists' });
     }
-
     // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Create new user
     const user = new User({
         name,
-        email,
-        password: hashedPassword,
+         profilePic, 
+         faculty_id, 
+         contact_info, 
+         department,
+          designation, 
+          email, 
+          qualification, 
+          salary,
+          leaves,
+          password : hashedPassword
     });
 
     await user.save();

@@ -1,0 +1,116 @@
+/* General container for centering the form */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #146ff8; /* Light gray background */
+    font-family: 'Arial', sans-serif;
+}
+
+/* Form container styling */
+.form-container {
+    background-color: white;
+    padding: 1.25rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    scale: 1;
+}
+
+/* Form heading */
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #333; /* Dark text */
+}
+
+/* Form layout */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem; /* Spacing between form fields */
+}
+
+/* Input fields styling */
+input {
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+/* Focus state for input fields */
+input:focus {
+    outline: none;
+    border-color: #007bff; /* Blue border on focus */
+}
+
+/* Submit button */
+button {
+    padding: 0.75rem;
+    background-color: #007bff; /* Primary button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Message for registration success or failure */
+.message {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: green;
+}
+
+/* Error message styling */
+.error {
+    color: red;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+    .form-container {
+        padding: 1.5rem;
+        max-width: 100%;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    input, button {
+        font-size: 0.9rem;
+    }
+}
+
+/* Large screen responsiveness */
+@media (min-width: 768px) {
+    .container {
+        height: 90vh;
+    }
+
+    .form-container {
+        padding: 2.5rem;
+        max-width: 500px;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    input, button {
+        font-size: 1.1rem;
+    }
+}

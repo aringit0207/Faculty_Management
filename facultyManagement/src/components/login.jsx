@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {jwtDecode} from 'jwt-decode'
+import './login.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -27,29 +28,55 @@ const Login = () => {
       navigate('/')
     } else {
       // Handle login failure
+      alert('Login failed, please check your credentials');
     }
   };
 
-  return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <input 
-          type="email" 
-          placeholder="Email" 
-          value={email}
-          onChange={(e) => setEmail(e.target.value)} 
-          required 
-        />
-        <input 
-          type="password" 
-          placeholder="Password" 
-          value={password}
-          onChange={(e) => setPassword(e.target.value)} 
-          required 
-        />
-        <button type="submit">Login</button>
-      </form>
+return (
+    <div className="container">
+      <div className="login-form">
+        <div className="login-form-fields">
+          <div className="login-input-group">
+            <div className="name-password-login-button">
+              {/* User Icon */}
+              <div className="user-icon">
+                <img 
+                  src="https://static.vecteezy.com/system/resources/previews/008/442/086/non_2x/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg" 
+                  alt="User Photo" 
+                />
+              </div>
+              <form onSubmit={handleLogin}>
+                {/* Email Field */}
+                <div className="name">
+                  <input 
+                    type="email" 
+                    placeholder="Email" 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)} 
+                    required 
+                  />
+                </div>
+
+                {/* Password Field */}
+                <div className="password">
+                  <input 
+                    type="password" 
+                    placeholder="Password" 
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)} 
+                    required 
+                  />
+                </div>
+
+                {/* Login Button */}
+                <div className="login-btn">
+                  <button type="submit">Log In</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

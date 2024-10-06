@@ -20,7 +20,8 @@ const FacultyPage = ({ data }) => {
     return (
         <div className='grow flex'>
             <div className='bg-zinc-100 p-8 flex flex-col items-center gap-4'>
-                <img className='w-48 p-2 border-2 rounded-md' src={`data:image/png;base64, ${fData?.profilePic}`} alt="" />
+                {/* <img className='w-48 p-2 border-2 rounded-md' src={`data:image/png;base64, ${fData?.profilePic}`} alt="" /> */}
+                <img className='w-48 p-2 border-2 rounded-md' src={`/profile.jpg`} alt="" />
                 <p className='text-2xl font-bold'>{fData?.name}</p>
                 <table>
                     <tbody>
